@@ -1,7 +1,6 @@
 from csv import reader as csv_reader
 from csv import writer as csv_writer
 import datetime
-
 from os.path import isfile
 
 
@@ -28,6 +27,16 @@ def note_upd( notes: list, args: list ) -> list:
 def note_del( notes: list, id: int ) -> list:
     return notes, notes.pop( id ), False
 
+# Заметки - Найти
+def notes_find( notes: list, date: str ) -> list:
+    f_notes = []
+    for note in notes:
+        add_date = datetime.datetime.strptime( note[2], '%Y.%m.%d %H:%M:%S')
+        if add_date.strftime("%Y.%m.%d") == date:
+            print( add_date.strftime("%Y.%m.%d"), date)
+            f_notes.append(note)
+    return f_notes
+
 # Заметки - Сохранить
 def notes_save( notes: list, file_name: str ) -> bool:
     file_path = f"{file_name}.csv"
@@ -48,16 +57,6 @@ def notes_read( notes: list, file_name: str ) -> list:
                 if not ( note in notes ):
                     notes.append( note )
     return notes
-
-# Заметки - Найти
-def notes_find( notes: list, date: str ) -> list:
-    f_notes = []
-    for note in notes:
-        add_date = datetime.datetime.strptime( note[2], '%Y.%m.%d %H:%M:%S')
-        if add_date.strftime("%Y.%m.%d") == date:
-            print( add_date.strftime("%Y.%m.%d"), date)
-            f_notes.append(note)
-    return f_notes
 
 
 # # For tests
