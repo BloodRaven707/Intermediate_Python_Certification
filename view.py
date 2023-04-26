@@ -104,7 +104,7 @@ def notes_show( notes: list ):
     else:
         print( "\nNotes List:" )
         for i in range( len( notes ) ):
-            print( f"{ i + 1 }. { '; '.join( notes[ i ] ) }" )
+            print( f"{ i + 1 }. { ' | '.join( notes[ i ] ) }" )
 
 # Вывод на экран заметок после поиска
 def fnotes_show( notes: list, fnotes: list ):
@@ -114,11 +114,11 @@ def fnotes_show( notes: list, fnotes: list ):
         print( "\nFind notes list:" )
         for i in range( len( notes ) ):
             if notes[i] in fnotes:
-                print( f"{ i + 1 }. { '; '.join( notes[ i ] ) }" )
+                print( f"{ i + 1 }. { ' | '.join( notes[ i ] ) }" )
 
 # Вывод на экран заметки
 def note_show( notes: list, id: int ):
-    print( f"\n{ id + 1 }. { '; '.join( notes[ id ] ) }" )
+    print( f"\n{ id + 1 }. { ' | '.join( notes[ id ] ) }" )
 
 
 ### Info messages
